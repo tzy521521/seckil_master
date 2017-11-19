@@ -73,11 +73,13 @@
       <artifactId>standard</artifactId>
       <version>1.1.2</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
+      <artifactId>jackson-databind</artifactId>
       <version>2.9.2</version>
     </dependency>
+
 
 
 
@@ -100,6 +102,7 @@
       <artifactId>spring-test</artifactId>
       <version>4.1.7.RELEASE</version>
     </dependency>
+    
   </dependencies>
   <build>
     <finalName>seckil_master</finalName>
