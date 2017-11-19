@@ -105,12 +105,12 @@ public class SeckillServiceTest {
          * exposed=false, md5='null', seckillId=1001, now=1511020550399, start=1511020800000, end=1511020920000
          * 秒杀开启的商品 测试结果类似 testExecuteSeckill()
          */
-        long seckillId=1001;
+        long seckillId=1002;
         Exposer exposer=seckillService.exportSeckillUrl(seckillId);
         if (exposer.isExposed()) {
             //System.out.println(exposer);
             logger.info("exposer={}",exposer);
-            long userPhone=13476191876L;
+            long userPhone=13476190876L;
             String md5=exposer.getMd5();
             try {
                 SeckillExecution seckillExecution = seckillService.executeSeckill(seckillId, userPhone, md5);
@@ -126,6 +126,18 @@ public class SeckillServiceTest {
             //秒杀未开启
             //System.out.println(exposer);
             logger.info("exposer={}",exposer);
+        }
+    }
+
+    @Test
+    public void executeSeckillProcedure() {
+        long seckillId = 1002;
+        long phone = 15690988678L;
+        Exposer exposer = seckillService.exportSeckillUrl(seckillId);
+        if (exposer.isExposed()) {
+            String md5 = exposer.getMd5();
+            SeckillExecution execution = seckillService.executeSeckillProcedure(seckillId, phone, md5);
+            logger.info(execution.getStateInfo());
         }
     }
 }

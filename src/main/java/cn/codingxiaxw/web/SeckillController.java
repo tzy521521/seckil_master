@@ -79,7 +79,10 @@ public class SeckillController {
         }
 
         try {
-            SeckillExecution execution = seckillService.executeSeckill(seckillId, userPhone, md5);
+            //执行存储过程的方法调用，有点小毛病吗???
+            SeckillExecution execution = seckillService.executeSeckillProcedure(seckillId, userPhone, md5);
+            //SeckillExecution execution = seckillService.executeSeckill(seckillId, userPhone, md5);
+
             return new SeckillResult<SeckillExecution>(true, execution);
         }catch (RepeatKillException e1) {
             SeckillExecution execution=new SeckillExecution(seckillId, SeckillStatEnum.REPEAT_KILL);
